@@ -31,7 +31,7 @@ void MyLexical::Print()
 
 bool MyLexical::getToken(string s, int& pos, Token& token)
 {
-	if (pos == s.size())
+	if (pos >= s.size())
 		return false;
 	string s_token = "";
 	char current_char = s.at(pos);
@@ -75,10 +75,29 @@ bool MyLexical::getToken(string s, int& pos, Token& token)
 		++pos;
 		return true;
 	}
-	else {
-		token.set("",TokenKind::BAD_TOKEN);
+	else if (current_char == '^') {
+		s_token.append(1, current_char);
+		token.set(s_token, TokenKind::POWER_OPERATER_TOKEN);
 		++pos;
-		return false;
+		return true;
+	}
+	else if (current_char == '(') {
+		s_token.append(1, current_char);
+		token.set(s_token, TokenKind::LEFT_BRACKET_TOKEN);
+		++pos;
+		return true;
+	}
+	else if (current_char == ')') {
+		s_token.append(1, current_char);
+		token.set(s_token, TokenKind::RIGHT_BRACKET_TOKEN);
+		++pos;
+		return true;
+	}
+	else{
+		s_token.append(1, current_char);
+		token.set(s_token,TokenKind::BAD_TOKEN);
+		++pos;
+		return true;
 	}
 }
 
