@@ -26,12 +26,12 @@ M ->(E)|id </br>
 ### first and follow:</br>
 first(N) = first(M) = {(,id}</br>
 first(E) = first(T) = first(F) = {-,(,id}</br>
-first(E') = {+,-,~}</br>
-first(T') = {* ,/,~}</br>
+first(E') = {+,-, ~}</br>
+first(T') = {* ,/, ~ }</br>
 first(N') = {^,~}</br>
-follow(E) = follow(E') = {),~}</br>
+follow(E) = follow(E') = {), ~ }</br>
 follow(T) = follow(T') = {+,-,),~}</br>
-follow(F) = follow(N) = follow(N') = {* ,/,+,-,),~}</br>
+follow(F) = follow(N) = follow(N') = {* ,/,+,-,), ~ }</br>
 follow(M) = {^,* ,/,+,-,),~}</br>
 
 ### Analysis table:</br>
