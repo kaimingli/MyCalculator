@@ -1,5 +1,5 @@
 # MyCalculator
-##a simple calculator implemented by lexical and parser
+## a simple calculator implemented by lexical and parser
 
 support add sub mul div nag pow, but num can only have one '.', i don't check it
 actuclly, i nearly don't do too much wrong check
@@ -14,12 +14,12 @@ M->(E) | id</br>
 
 ### eliminate left recursion:</br>
 E ->TE'</br>
-E'->+TE' | -TE' | ~</br>
+E'->+TE' | -TE' |~ </br>
 T ->FT'</br>
-T'->* FT' | /FT' |~</br>
+T'->* FT' | /FT' |~ </br>
 F ->-N | N</br>
 N ->MN'</br>
-N'->^N | ~</br>
+N'->^N |~ </br>
 M ->(E)|id</br>
 
 ### first and follow:</br>
@@ -35,7 +35,7 @@ follow(M) = {^,* ,/,+,-,),~}</br>
 
 ### Analysis table:</br>
 	  id	  +   -	  *	    /	  ^	  ( 	)	  $</br>
-E	  TE’		    TE’				       TE’</br>
+E         TE’         TE’				       TE’</br>
 E’		  +TE’	-TE’</br>
 T	  FT’		    FT’				        FT’</br>
 T’  				      *FT’  /FT’</br>
