@@ -1,4 +1,4 @@
-
+  
 # MyCalculator
 ## a simple calculator implemented by lexical and parser
 
@@ -17,7 +17,7 @@ M->(E) | id</br>
 E ->TE' </br>
 E'->+TE' | -TE' |~ </br>
 T ->FT' </br>
-T'->* FT' | /FT' |~ </br>
+T'-> * FT' | /FT' |~ </br>
 F ->-N | N </br>
 N ->MN' </br>
 N'->^N |~ </br>
