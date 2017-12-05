@@ -34,14 +34,6 @@ follow(F) = follow(N) = follow(N') = {* ,/,+,-,),~}</br>
 follow(M) = {^,* ,/,+,-,),~}</br>
 
 ### Analysis table:</br>
-	  id	  +   -	  *	    /	  ^	  ( 	)	  $</br>
-E         TE’         TE’				       TE’</br>
-E’		  +TE’	-TE’</br>
-T	  FT’		    FT’				        FT’</br>
-T’  				      *FT’  /FT’</br>
-F	  N		      -N				        N</br>
-N	  MN						              MN’</br>
-N’  							          ^N</br>
-M	  Id						              (E)</br>
-
+|Tables    |id    |+    |-    |*    |/    |^    |(    |)    |~    |
+|----------|:----:|-----|
 hope can help you
