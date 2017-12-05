@@ -3,6 +3,10 @@
 
 using namespace std;
 
+MyLexical::MyLexical()
+{
+}
+
 MyLexical::MyLexical(string s)
 {
 	this->s = s;
@@ -20,6 +24,7 @@ void MyLexical::Lexical()
 	while (getToken(s,pos,token) == true) {
 		tokens.push_back(token);
 	}
+	tokens.push_back(Token("END",TokenKind::END_TOKEN));
 }
 
 void MyLexical::Print()
@@ -29,6 +34,17 @@ void MyLexical::Print()
 	}
 }
 
+int MyLexical::sum()
+{
+	return s.size();
+}
+
+Token MyLexical::at(int i)
+{
+	return tokens.at(i);
+}
+
+//从string的pos位置开始，找到下一个token，函数运行后pos指向token之后第一个位置，token保存得到的token值，返回值表示是否寻找成功
 bool MyLexical::getToken(string s, int& pos, Token& token)
 {
 	if (pos >= s.size())
@@ -108,18 +124,28 @@ Token::Token()
 Token::Token(std::string s, TokenKind tokenkind)
 {
 	this->s = s;
-	this->token = token;
+	this->token = tokenkind;
 }
 
 void Token::set(std::string s, TokenKind tokenkind)
 {
 	this->s = s;
-	this->token = token;
+	this->token = tokenkind;
 }
 
 string Token::Print()
 {
-	return this->s;
+	return this->getstr();
+}
+
+string Token::getstr()
+{
+	return s;
+}
+
+int Token::gettype()
+{
+	return token;
 }
 
 Token::~Token()
