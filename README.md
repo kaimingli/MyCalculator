@@ -15,27 +15,27 @@ M->(E) | id</br>
 
 ### eliminate left recursion:</br>
 E ->TE' </br>
-E'->+TE' | -TE' |~ </br>
+E'->+TE' | -TE' |$ </br>
 T ->FT' </br>
-T'-> * FT' | /FT' |~ </br>
+T'-> * FT' | /FT' |$ </br>
 F ->-N | N </br>
 N ->MN' </br>
-N'->^N |~ </br>
+N'->^N |$ </br>
 M ->(E)|id </br>
 
 ### first and follow:</br>
 first(N) = first(M) = {(,id}</br>
 first(E) = first(T) = first(F) = {-,(,id}</br>
-first(E') = {+,-, ~}</br>
-first(T') = {* ,/, ~ }</br>
-first(N') = {^,~}</br>
+first(E') = {+,-, $}</br>
+first(T') = {* ,/, $ }</br>
+first(N') = {^,$}</br>
 follow(E) = follow(E') = {), ~ }</br>
-follow(T) = follow(T') = {+,-,),~}</br>
-follow(F) = follow(N) = follow(N') = {* ,/,+,-,), ~ }</br>
-follow(M) = {^,* ,/,+,-,),~}</br>
+follow(T) = follow(T') = {+,-,),$}</br>
+follow(F) = follow(N) = follow(N') = {* ,/,+,-,), $ }</br>
+follow(M) = {^,* ,/,+,-,),$}</br>
 
 ### Analysis table:</br>
-|Tables    |id    |+    |-    |*    |/    |^    |(    |)    |~    |
+|Tables    |id    |+    |-    |*    |/    |^    |(    |)    |$    |
 |----------|:----:|:---:|:---:|:---:|:---:|:---:|:---:|:---:|:---:|
 |E         |TE'   |     |TE'  |     |     |     |TE'  |     |     |
 |E'        |      |+TE' |-TE' |     |     |     |     |     |     |
